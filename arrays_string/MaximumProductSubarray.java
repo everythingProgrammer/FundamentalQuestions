@@ -72,7 +72,7 @@ public class MaximumProductSubarray {
 	}
 	
 	public static void main(String args[]) {
-		int arr[] = {-1,-1,0};
+		int arr[] = {-3,1,2,-2,5,6,1};
 		System.out.println(maxProduct(arr));
 	}
 }
