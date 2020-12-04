@@ -655,6 +655,35 @@ public class Tree {
 		
 		return root;
 	}
+
+	
+	/*Balanced Binary Tree 
+	 * Recursive approach*/
+	 public boolean isBalanced(TreeNode root) {
+	        if(root == null){
+	            return true;
+	        }
+	        
+	        int l = maxHeight(root.left);
+	        int r = maxHeight(root.right);
+	        
+	        if(Math.abs(l-r)<= 1 && isBalanced(root.left) && isBalanced(root.right)){
+	            return true;
+	        }
+	        return false;
+	        
+	        
+	    }
+	    public static int maxHeight(TreeNode root){
+	        if(root == null){
+	            return 0;
+	        }
+	        return 1+ Math.max(maxHeight(root.left), maxHeight(root.right));
+	    }
+	/*Everywhere where height is being calculated we can make an optimization where we can use 
+	 * a class height. 
+	 * */
+	 
 }
 	
 
