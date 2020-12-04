@@ -591,6 +591,24 @@ public class Tree {
         }
         return dp[n];
     }
+
+	
+	
+	/*Invert Binary Tree : https://leetcode.com/problems/invert-binary-tree/solution/
+	 * Recursive approach 
+	 * basically just create new nodes left and right and place them at left and right
+	 * so the for leaf nodes nothing happens but for node above leaf the leaves gets interchanged*/
+	
+	public TreeNode invertBinaryTree(TreeNode root) {
+		if(root == null) {
+			return null;
+		}
+		TreeNode right = invertBinaryTree(root.right);
+		TreeNode left = invertBinaryTree(root.left);
+		root.right  = left;
+		root.left = right; 
+		return root;
+	}
 }
 	
 

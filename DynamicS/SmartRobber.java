@@ -17,5 +17,8 @@ public class SmartRobber {
         	dp[i] = Math.max(nums[i] + dp[i-2], dp[i-1]);
         }
         return dp[nums.length -1];
-    }	
+    }
+	public static void main(String args[]) {
+		
+	}
 }
