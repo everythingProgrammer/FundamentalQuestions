@@ -1,5 +1,7 @@
 package trees;
 import java.util.*;
+
+
 public class Tree {
 	
 	class TreeNode {
@@ -20,6 +22,26 @@ public class Tree {
 	      }
 	  }
 	TreeNode root = null;
+	
+	/*Level Order Traversal*/
+	public void levelOrder(TreeNode root) {
+		LinkedList<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+		while(!queue.isEmpty()) {
+			TreeNode rv = queue.removeFirst();
+			System.out.println(rv.val+" ");
+			if(rv.left != null) {
+				queue.add(rv.left);
+				
+			}
+			if(rv.right != null) {
+				queue.add(rv.right);
+			}
+			
+		}
+		System.out.println("END");
+	}
+	
 	
 	/*Symmetric Tree */
 	public boolean isSymmetric(TreeNode root) {
@@ -607,6 +629,30 @@ public class Tree {
 		TreeNode left = invertBinaryTree(root.left);
 		root.right  = left;
 		root.left = right; 
+		return root;
+	}
+	
+	/*Invert Binary Tree - Iterative approach */
+	public TreeNode invertBinaryTree( TreeNode root, int b) {
+		LinkedList<TreeNode> queue = new LinkedList<>();
+		queue.add(root);
+		
+		while(!queue.isEmpty()) {
+			TreeNode rv = queue.removeFirst();
+			TreeNode temp = rv.left;
+			rv.left = rv.right;
+			rv.right = temp;
+			if(rv.left != null) {
+				queue.add(rv.left);
+			}
+			if(rv.right != null) {
+				queue.add(rv.right);
+			}
+			
+		}
+		
+		
+		
 		return root;
 	}
 }
