@@ -98,6 +98,40 @@ public class Tree {
         Collections.reverse(lst);
         return lst;
 	}
+	
+	/*   https://leetcode.com/problems/average-of-levels-in-binary-tree/submissions/*/
+	public List<Double> averageOfLevels(TreeNode root) {
+        List<Double> avg = new ArrayList<Double>();
+        double a = 0.0;
+        int count = 0;
+        LinkedList<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+        queue.add(null);
+        while(!queue.isEmpty()){
+            TreeNode rv = queue.removeFirst();
+            if(rv == null){
+                avg.add(a/count);
+                a=0.0;
+                count = 0;
+                if(!queue.isEmpty()){
+                    queue.add(null);
+                }
+                continue;
+            }
+            a+=rv.val;
+            count++;
+            if(rv.left!= null)
+                queue.add(rv.left);
+            if(rv.right!= null)
+                queue.add(rv.right);
+        }
+        
+        return avg;
+        
+    }
+	
+	
+	
 	/*Symmetric Tree */
 	public boolean isSymmetric(TreeNode root) {
 		if( root == null)
