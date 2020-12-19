@@ -684,9 +684,33 @@ public class Tree {
 	 * a class height. 
 	 * */
 	 
+	  public void diagonalPrint() {
+		  HashMap<Integer, Vector<Integer>> diagonalPrint = new HashMap<>();
+		  diagonalPrintUtil(root,0 , diagonalPrint);
+		  
+		  System.out.println(diagonalPrint);
+	  }
 	    
-	    
-	    
+	  public void diagonalPrintUtil(TreeNode root, int d, HashMap<Integer , Vector<Integer>> diagonalPrint) {
+		 if(root == null)
+			 return;
+		 Vector<Integer> k = diagonalPrint.get(d);
+		 if(k == null) {
+			 k = new Vector<>();
+			 k.add(root.val);
+		 }
+		 else {
+			 k.add(root.val);
+		 }
+		 
+		 diagonalPrint.put(d, k);
+		 
+		 diagonalPrintUtil(root.right, d, diagonalPrint);
+		 diagonalPrintUtil(root.left, d+1 , diagonalPrint);
+		 
+		 
+	  }
+	  
 	   
 }
 	
