@@ -130,6 +130,41 @@ public class Tree {
         
     }
 	
+	 public int maxLevelSum(TreeNode root) {
+	        List<Double> avg = new ArrayList<Double>();
+	        int sum = 0;
+	        int maxsum = Integer.MIN_VALUE;
+	        int level = 1;
+	        int maxlevel = 0;
+	        LinkedList<TreeNode> queue = new LinkedList<>();
+	        queue.add(root);
+	        queue.add(null);
+	        while(!queue.isEmpty()){
+	            TreeNode rv = queue.removeFirst();
+	            if(rv == null){
+	                if(sum>maxsum){
+	                    maxsum = sum;
+	                    maxlevel = level;
+	                }
+	                level++;
+	                sum = 0;
+	                if(!queue.isEmpty()){
+	                    queue.add(null);
+	                }
+	                continue;
+	            }
+	            sum+=rv.val;
+	            
+	            if(rv.left!= null)
+	                queue.add(rv.left);
+	            if(rv.right!= null)
+	                queue.add(rv.right);
+	        }
+	        
+	        return maxlevel;
+	        
+	        
+	    }
 	
 	
 	/*Symmetric Tree */
