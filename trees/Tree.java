@@ -70,7 +70,34 @@ public class Tree {
         return lst;
     }
 	
-	
+	public List<List<Integer>> levelOrderBottom(TreeNode root) {
+        List<List<Integer>> lst = new ArrayList<List<Integer>>();
+        if(root == null)
+            return lst;
+        List<Integer> levellist = new ArrayList<>();
+        LinkedList<TreeNode> queue =  new LinkedList<>();
+        queue.add(root);
+        queue.add(null);
+        while(!queue.isEmpty()){
+            TreeNode rv = queue.removeFirst();
+            
+            if(rv== null){
+                lst.add(levellist);
+                levellist = new ArrayList<>();
+                if(!queue.isEmpty()){
+                    queue.add(null);
+                }
+                continue;
+            }
+            levellist.add(rv.val);
+            if(rv.left!= null)
+                queue.add(rv.left);
+            if(rv.right!= null)
+                queue.add(rv.right);
+        }
+        Collections.reverse(lst);
+        return lst;
+	}
 	/*Symmetric Tree */
 	public boolean isSymmetric(TreeNode root) {
 		if( root == null)
