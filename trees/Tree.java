@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Tree {
 	
-	class TreeNode {
+	public class TreeNode {
 	      int val;
 	      TreeNode left;
 	      TreeNode right;
@@ -915,7 +915,9 @@ public class Tree {
 		  return null;
 		  
 	  }
-	   
+	  
+	  
+	  /*LCA for Binary Tree */
 }
 	
 
