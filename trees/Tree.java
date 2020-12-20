@@ -857,6 +857,32 @@ public class Tree {
 	  /*Link*/
 	  /*   https://www.geeksforgeeks.org/check-given-graph-tree/#:~:text=Since%20the%20graph%20is%20undirected,graph%20is%20connected%2C%20otherwise%20not.
 	  */
+	  
+	  
+	  
+	  /*Lowest Common Ancestor of a BINARY SEARCH TREE. 
+	   * a node can be it's own ancestor*/
+	  
+	  /*Binary Search Tree's property can be used here.*/
+	  /*Recursive approach. */
+	  public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q)     {
+	        int parentVal = root.val;
+	        int pVal = p.val;
+	        int qVal = q.val;
+	        
+	        
+	        if(pVal>parentVal && qVal>parentVal){
+	            return lowestCommonAncestor(root.right , p, q);
+	        }
+	        else if(pVal<parentVal && qVal < parentVal){
+	            return lowestCommonAncestor(root.left , p, q);
+	        }
+	        else{
+	            return root;
+	        }
+	    }
+	  
+	  
 	   
 }
 	
