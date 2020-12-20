@@ -882,7 +882,39 @@ public class Tree {
 	        }
 	    }
 	  
+	  /*Iterative approach*/
 	  
+	  public TreeNode lowestCommonAncestorI(TreeNode root, TreeNode p, TreeNode q) {
+		  
+		  /*
+		   * The steps taken are also similar to approach 1.
+		   *  The only difference is instead of recursively calling the function, 
+		   *  we traverse down the tree iteratively. This is possible without using
+		   *  a stack or recursion since we don't need to backtrace to find the LCA
+		   *  node. In essence of it the problem is iterative, it just wants us to
+		   *  find the split point.
+		   *  The point from where p and q won't be part of the same subtree or when one is the parent of the other.*/
+		  
+		  int pVal = p.val;
+		  int qVal = q.val;
+		  TreeNode node = root;
+		  while(node != null) {
+			  int parentVal = node.val;
+			  
+			  if(pVal>parentVal && qVal > parentVal) {
+				  node = node.right;
+			  }
+			  else if(pVal< parentVal && qVal < parentVal) {
+				  node = node.left;
+			  }
+			  else {
+				  return node;
+			  }
+			  
+		  }
+		  return null;
+		  
+	  }
 	   
 }
 	
