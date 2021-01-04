@@ -6,7 +6,10 @@ public class BuyandSellStock {
 	 *If we have to consider only 1 for max profit then we can simply modify this one 
 	 *where we are doing ans = ans + (peak - valley) if we do ans = Math.max(ans , (peak-valley)) 
 	 *that should do .*/
-	public int maxProfit(int[] prices) {
+	
+	
+
+	public static int maxProfit(int[] prices) {
 		
 		int i = 0 ; 
 		int n = prices.length;
@@ -25,12 +28,15 @@ public class BuyandSellStock {
 				i++;
 			}
 			peak = prices[i];
-			
-			ans = ans+( peak - valley);
+			ans = ans+ (peak-valley);
+
 			
 		}
 		return ans;	
     }
 	
+	public static void main(String args[]) {
+		int arr[] = {7,1,5,3,6,4};
+	}
 		
 }
