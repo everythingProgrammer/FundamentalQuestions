@@ -17,7 +17,7 @@ public class MostWater {
 		return ans;
 	}
 	public static void main(String args[]) {
-		int height[] = {1,8,6,2,5,4,8,3,7};
+		int height[] = {0, 2, 1, 3, 0, 1, 2, 1, 2, 1};
 		System.out.println(maxArea(height));
 	}
 }
