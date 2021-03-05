@@ -6,7 +6,7 @@ public class Kdanes {
 		int global_max ;
 		int current_max = global_max = arr[0];
 		
-		for(int i = 0 ; i< arr.length ; i++) {
+		for(int i =1  ; i< arr.length ; i++) {
 			current_max = Math.max(arr[i], arr[i]+current_max);
 			
 			
