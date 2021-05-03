@@ -21,7 +21,6 @@ public class LongestPallindroneSubstring {
 				start = i - ((maxlen - 1 )/2);	/*this maxlen -1 comes into action when we have palindrome of type abbbba here we'll get right starting point since
 												 *	b is 2 and 5/2 = 2 and i will also be 2 .... */
 				end = i+ (maxlen/ 2);
-				
 			}
 			
 		}
